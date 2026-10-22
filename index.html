@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📈 Market Pulse | Financial Data Dashboard</title>
+    <!-- FontAwesome for sleek icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js Library via CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="brand">
+                <i class="fa-solid fa-chart-line logo-icon"></i>
+                <div>
+                    <h1>Market Pulse</h1>
+                    <span class="subtitle">Real-Time Financial Asset Analytics</span>
+                </div>
+            </div>
+            <div class="status-bar">
+                <span id="last-updated" class="status-text"><i class="fa-solid fa-sync fa-spin"></i> Initializing...</span>
+                <button id="refresh-btn" class="btn-primary" onclick="fetchMarketData()">
+                    <i class="fa-solid fa-rotate-right"></i> Refresh
+                </button>
+            </div>
+        </header>
+
+        <!-- Live Asset Grid -->
+        <section class="ticker-grid" id="ticker-grid">
+            <!-- Ticker cards populated via JavaScript -->
+            <div class="card skeleton">Loading assets...</div>
+        </section>
+
+        <!-- Main Analytics Section -->
+        <main class="analytics-section">
+            <!-- Main Chart Card -->
+            <div class="chart-card">
+                <div class="chart-header">
+                    <div class="selected-asset-info">
+                        <h2 id="chart-asset-title">Bitcoin (BTC)</h2>
+                        <span id="chart-asset-price" class="main-price">$0.00</span>
+                    </div>
+                    <div class="timeframe-selector">
+                        <button class="tf-btn active" onclick="changeTimeframe('1')">24H</button>
+                        <button class="tf-btn" onclick="changeTimeframe('7')">7D</button>
+                        <button class="tf-btn" onclick="changeTimeframe('30')">30D</button>
+                    </div>
+                </div>
+                <div class="chart-wrapper">
+                    <canvas id="marketChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Side Controls & Alerts Panel -->
+            <aside class="control-panel">
+                <div class="panel-card">
+                    <h3><i class="fa-solid fa-bell"></i> Set Price Alert</h3>
+                    <p class="panel-desc">Get notified when an asset crosses your trigger price.</p>
+                    
+                    <div class="form-group">
+                        <label for="alert-asset">Select Asset</label>
+                        <select id="alert-asset">
+                            <option value="fxaix">Fidelity 500 (FXAIX)</option>
+                            <option value="bitcoin">Bitcoin (BTC)</option>
+                            <option value="ethereum">Ethereum (ETH)</option>
+                            <option value="solana">Solana (SOL)</option>
+                            <option value="cardano">Cardano (ADA)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="alert-target-price">Target Price ($USD)</label>
+                        <input type="number" id="alert-target-price" placeholder="e.g. 65000">
+                    </div>
+
+                    <button class="btn-success" onclick="setPriceAlert()">
+                        <i class="fa-solid fa-check"></i> Activate Alert
+                    </button>
+
+                    <div id="active-alerts-list" class="alerts-list">
+                        <!-- Active alerts show up here -->
+                    </div>
+                </div>
+            </aside>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
