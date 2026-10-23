@@ -10,7 +10,9 @@ A clean, ad-free, dark-mode financial telemetry web application that streams liv
 
 ---
 
-## 🚀 Live Demo
+## 🚀 Live Demo TRACKER](https://img.shields.io/badge/DEMO-LIVE_TRACKER-brightgreen?style=for-the-badge&logo=github)](TRACKER](https://img.shields.io/badge/DEMO-LIVE_TRACKER-brightgreen?style=for-the-badge&logo=github)](YOUR_GITHUB_PAGES_URL_HERE)
+)
+
 
 🔗 **[Launch Market Pulse Dashboard](https://caspian1988.github.io/financial-market-monitor/)**
 
